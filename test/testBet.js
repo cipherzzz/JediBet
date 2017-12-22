@@ -50,4 +50,13 @@ contract('Bet', function(accounts) {
       });
     });
   });
+
+  it('The bet outcome should be available', function() {
+    return Bet.deployed().then(function(instance) {
+      return instance.getBetOutcome().then(outcome => {
+        assert.notEqual(outcome, '', 'Bet outcome should not be empty');
+        console.log(outcome);
+      });
+    });
+  });
 });
